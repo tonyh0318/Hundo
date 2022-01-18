@@ -1,5 +1,5 @@
 //Display message to the user
-function getValues(){
+function getValues() {
     let startValue = document.getElementById("startValue").value;
     let endValue = document.getElementById("endValue").value;
 
@@ -7,12 +7,11 @@ function getValues(){
     endValue = parseInt(endValue);
 
     //Validate Input
-    if(Number.isInteger(startValue) && Number.isInteger(endValue)){
+    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
         let numArray = generateNumbers(startValue, endValue);
 
         displayNumbers(numArray);
-    }
-    else{
+    } else {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -21,23 +20,25 @@ function getValues(){
     }
 }
 
-function generateNumbers(sVal, eVal){
+function generateNumbers(sVal, eVal) {
 
     let numArray = [];
-    for (let i = sVal; i <= eVal; i++){
+    for (let i = sVal; i <= eVal; i++) {
         numArray.push(i);
     }
 
     return numArray;
 }
 
-function displayNumbers(numArray){
- 
+function displayNumbers(numArray) {
+
     let templateRows = "";
     let className = "";
-    for (let i = 0; i < numArray.length; i++){
+    for (let i = 0; i < numArray.length; i++) {
 
-        if (numArray[i] % 2 == 0){
+        let number = numArray[i];
+
+        if (number % 2 == 0) {
             className = "even";
         } else {
             className = "odd";
